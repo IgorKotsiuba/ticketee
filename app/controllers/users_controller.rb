@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def update
   	if @user.update(user_params)
   		flash[:notice] = "Profile has been updated."
-  		redirect_to projects_path
+  		redirect_to user_path
   	end
   end
 
