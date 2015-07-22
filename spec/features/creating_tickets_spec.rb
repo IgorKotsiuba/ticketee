@@ -13,6 +13,7 @@ feature "Creating Tickets" do
 		expect(page).to have_content(message)
 		
 		fill_in "Name", with: user.name
+		fill_in "Email", with: user.email
 		fill_in "Password", with: user.password
 		click_button "Sign in"
 		click_link project.name
@@ -27,9 +28,8 @@ feature "Creating Tickets" do
 		expect(page).to have_content("Ticket has been created.")
 
 		within "#ticket #author" do
-		
-		expect(page).to have_content("Created by sample@example.com")
-end
+			expect(page).to have_content("Created by sample@example.com")
+		end
 	end
 	
 	scenario "Creating a ticket without valid attributes fails" do
